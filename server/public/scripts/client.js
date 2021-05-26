@@ -9,6 +9,8 @@ function addClickHandlers() {
 
   // TODO - Add code for edit & delete buttons
   $( '#bookShelf' ).on( 'click', '.deleteBtn', handleDelete );
+
+  $( '#bookShelf' ).on( 'click', '.isReadBtn', handleMarkAsRead );
 }
 
 function deleteBook ( bookId ) {
@@ -22,6 +24,12 @@ function deleteBook ( bookId ) {
 
     refreshBooks();
   })
+}
+
+function handleMarkAsRead () {
+  console.log('clicked Mark As Read!');
+
+  markAsRead ( $(this).data("id"), "true" );
 }
 
 function handleDelete () {
@@ -79,9 +87,29 @@ function renderBooks(books) {
         <td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.isRead}</td>
-        <td><button class="isReadBtn" data-id+"${book.id}">Mark as Read</button></td>
+        <td><button class="isReadBtn" data-id="${book.id}">Mark as Read</button></td>
         <td><button class="deleteBtn" data-id="${book.id}">DELETE</button></td>
       </tr>
     `);
   }
+}
+
+function markAsRead ( bookId, changeStatusTo ) {
+  console.log( 'In markAsRead function' );
+
+  $.ajax({
+    method: 'PUT',
+    url: `/books/${bookId}`,
+    data: {
+      isRead: changeStatusTo
+    }
+  })
+  .then( response => {
+    console.log(`Marked as Read!`);
+    refreshBooks();
+})
+.catch( err => {
+    console.log('You cannot read this book.')
+    alert('There was a problem while marking this book as read');
+});
 }
