@@ -8,15 +8,19 @@ Get started by taking a look at our existing code, and getting the current appli
 
 ## Database Setup
 
-You'll need to create a database called `awesome_reads`. 
+[X] You'll need to create a database called `awesome_reads`. 
 
-Use the provided `database.sql` file to create the `books` table and setup some test data.
+[X] Use the provided `database.sql` file to create the `books` table and setup some test data.
 
 ## Base Mode
 
 ### Remove a book
 
 Users want to be able to remove a book from the book list.  Add a `Delete` button for each book. This should make an AJAX call to a `DELETE` endpoint, passing the book `id` as a URL parameter, and removing the book from the database.
+
+    [X] Add a Delete button for each book
+    [] Ajax call
+
 
 ### Update a book
 
