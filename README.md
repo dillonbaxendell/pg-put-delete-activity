@@ -30,9 +30,9 @@ Add another button to each book allowing the user to `Mark as Read`. This should
 
 ### Task list
 
-- [ ] DELETE & PUT AJAX calls
-- [ ] DELETE & PUT SERVER SIDE 
-- [ ] Page should refresh with up to date data after a DELETE or PUT
+- [X] DELETE & PUT AJAX calls
+- [X] DELETE & PUT SERVER SIDE 
+- [X] Page should refresh with up to date data after a DELETE or PUT
 
 
 ## Stretch Goals
